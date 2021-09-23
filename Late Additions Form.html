@@ -1,0 +1,96 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style> 
+            input {
+              width: 100%;
+            }
+            </style>
+    </head>
+    <body>
+        <form>
+         
+            <div class="form-group container-fluid">
+                <label class="container" >Laptop | $296.81
+                    <input type="checkbox" name="lateAdditions" id="laptop" value="296.81">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="container  ">Remote Mouse/Clicker | $54.40
+                    <input type="checkbox" name="lateAdditions" id="mouse" value="54.40">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="container">Flipchart/Whiteboard | $80.41
+                    <input type="checkbox" name="lateAdditions" id="flipchart" value="80.41">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="container">Polycom Conference Phone | $219.53
+                    <input type="checkbox" name="lateAdditions" id="conferencePhone" value="219.53">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="container">Power Boards (more than 5) | $105.60
+                    <input type="checkbox" name="lateAdditions" id="powerBoards" value="105.60">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="container">Single UHF Microphone Kit | $206.80
+                    <input type="checkbox" name="lateAdditions" id="singleUHFMicrophone" value="206.80">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="container">Data Projector & Screen(level 1 only)| $553.00
+                    <input type="checkbox" name="lateAdditions" id="projectorAndScreen" value="553">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="container">Technicians Name: 
+                    <input type="text" id="techName">
+                  </label>
+                  <label class="container">Client / Facilitator's Name: 
+                    <input type="text" id="clientName">
+                  </label>
+
+                  <label>Total
+                  <span id=totalDisplay>0</span>
+                </label>
+
+             </div>
+
+             <a href="mailto:tazgirl33@hotmail.com">E-Mail Venue Director</a>
+            
+
+           
+        </form>
+        <script> 
+        var checkboxes = document.querySelectorAll("input[type=checkbox][name=lateAdditions]"); //Select all checkboxes in array  
+        let sum = 0.00;
+
+        checkboxes.forEach(function(checkbox) {
+        checkbox.addEventListener('change', function() {
+        lateAdditionsTotal = 
+        Array.from(checkboxes) // Convert checkboxes to an array to use filter and map.
+        .filter(i => i.checked) // Use Array.filter to remove unchecked checkboxes.
+        .map(i => parseFloat(i.value)) // Use Array.map to extract only the checkbox values from the array of objects. Also convert all values to dec
+        if(lateAdditionsTotal.length == 0){         
+          
+          document.getElementById("totalDisplay").innerHTML = 0;
+        }
+        else{
+          sum = lateAdditionsTotal.reduce((a,b)=>a+b);
+        document.getElementById("totalDisplay").innerHTML ="$"+ sum.toFixed(2);        
+        
+      }
+
+  })
+});
+
+function screenshot(){
+var canvas = document.getElementById("mycanvas");
+var img    = canvas.toDataURL("image/png");
+document.write('<img src="'+img+'"/>');
+}
+        </script>
+        
+
+    </body>
+    </html>
